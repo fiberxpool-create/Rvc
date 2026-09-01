@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Random Video Chat</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main class="app">
+    <header>
+      <h1>Random Video Chat</h1>
+      <div id="status" class="status">Ready</div>
+    </header>
+
+    <section class="videos">
+      <div class="video-card">
+        <span class="label">You</span>
+        <video id="localVideo" autoplay muted playsinline></video>
+      </div>
+
+      <div class="video-card">
+        <span class="label">Stranger</span>
+        <video id="remoteVideo" autoplay playsinline></video>
+        <div id="remotePlaceholder" class="placeholder">Waiting for video…</div>
+      </div>
+    </section>
+
+    <section class="controls">
+      <button id="startBtn">Start</button>
+      <button id="nextBtn" disabled>Next</button>
+      <button id="stopBtn" disabled>Stop</button>
+    </section>
+
+    <section class="chat">
+      <h2>Chat</h2>
+      <div id="messages" class="messages">
+        <div class="system">Press Start to find a random person.</div>
+      </div>
+      <form id="chatForm">
+        <input id="chatInput" autocomplete="off" maxlength="1000" placeholder="Type a message…" disabled>
+        <button id="sendBtn" type="submit" disabled>Send</button>
+      </form>
+    </section>
+  </main>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>

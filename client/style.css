@@ -1,0 +1,138 @@
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: #080b12;
+  color: #f4f7fb;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+.app {
+  width: min(1100px, 94vw);
+  margin: 0 auto;
+  padding: 22px 0 40px;
+}
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+h1 { margin: 0; font-size: clamp(26px, 5vw, 42px); }
+.status {
+  padding: 8px 12px;
+  border: 1px solid #29344a;
+  border-radius: 999px;
+  color: #b9c6dc;
+  font-size: 14px;
+}
+.videos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.video-card {
+  position: relative;
+  min-height: 280px;
+  aspect-ratio: 16/10;
+  background: #111827;
+  border: 1px solid #27344c;
+  border-radius: 16px;
+  overflow: hidden;
+}
+video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  background: #111827;
+}
+.label {
+  position: absolute;
+  z-index: 2;
+  top: 12px;
+  left: 12px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: rgba(0,0,0,.65);
+  font-weight: 700;
+}
+.placeholder {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: #8290a8;
+  pointer-events: none;
+}
+.controls {
+  display: flex;
+  gap: 10px;
+  margin: 16px 0;
+}
+button {
+  border: 0;
+  border-radius: 10px;
+  padding: 11px 18px;
+  background: #356dff;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+}
+button:disabled {
+  opacity: .4;
+  cursor: not-allowed;
+}
+#stopBtn { background: #d83b4b; }
+.chat {
+  border: 1px solid #27344c;
+  border-radius: 16px;
+  padding: 14px;
+  background: #0d1320;
+}
+.chat h2 { margin: 0 0 12px; }
+.messages {
+  height: 220px;
+  overflow-y: auto;
+  padding: 12px;
+  border-radius: 12px;
+  background: #070b12;
+  border: 1px solid #202c40;
+}
+.message {
+  width: fit-content;
+  max-width: 85%;
+  padding: 8px 11px;
+  margin: 7px 0;
+  border-radius: 10px;
+  background: #182338;
+  overflow-wrap: anywhere;
+}
+.message.me {
+  margin-left: auto;
+  background: #2454c6;
+}
+.system {
+  text-align: center;
+  color: #7787a1;
+  font-size: 14px;
+}
+#chatForm {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+#chatInput {
+  min-width: 0;
+  flex: 1;
+  border: 1px solid #2a3953;
+  background: #090e17;
+  color: white;
+  border-radius: 10px;
+  padding: 11px 12px;
+  outline: none;
+}
+@media (max-width: 700px) {
+  .videos { grid-template-columns: 1fr; }
+  .video-card { min-height: 220px; }
+  header { align-items: flex-start; flex-direction: column; }
+}
